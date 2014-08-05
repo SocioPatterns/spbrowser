@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <script type="text/javascript" src="libs/jquery-1.7.1.min.js"></script>
+ <script type="text/javascript" src="libs/jquery.flot.js"></script>
+ <script type="text/javascript" src="libs/jquery.flot.selection.js"></script>
+ <script type="text/javascript" src="libs/d3.min.js"></script>
+ <script type="text/javascript" src="libs/d3.geom.min.js"></script>
+ <script type="text/javascript" src="libs/d3.layout.min.js"></script>
+ <link href='http://fonts.googleapis.com/css?family=Oswald:400,600,800|Open+Sans:400italic,600' rel='stylesheet' type='text/css'>
+ <link type="text/css" rel="stylesheet" href="css/spbrowser2.css"/>
+ <title>SocioPatterns data browser</title>
+ </head>
+
+<body>
+    <div id="header">
+        <h1>SocioPatterns data browser</h1>
+        <a id="logo" href="http://www.isi.it/research/data-science-laboratory"><img src="img/isi-logo.png"></a>
+        <div id="desc">
+            Visualization of real time contacts recorded.
+        </div>
+
+        <div id="graphs">
+        <div id="plot_overview"></div>
+        <div id="plot_timeline"></div>
+        </div>
+
+        <div id="controls">
+            <div><label>From timestamp:</label><input id="param_t1" type="text" name="param_t1" /></div>
+            <div><label>To timestamp:</label><input id="param_t2" type="text" name="param_t2" /></div>
+            <div><label>Threshold:</label><input id="param_wthres" name="param_wthres" type="text" /></div>
+        </div>
+    </div>
+    <div id="graph-layout">
+    </div>
+
+    <div id="credits">
+        code by <a target="_blank" href="http://people.isi.it/~cattuto/">Ciro Cattuto</a>,
+        <a target="_blank" href="http://www.di.unito.it/~panisson/">André Panisson</a>,
+        <a target="_blank" href="http://www.knowledgecartography.org/">Marco Quaggiotto</a>,
+        <a target="_blank" href="http://www.isi.it/personal-profile/?pslug=marcello-dalponte">Marcello Dalponte</a>,
+        using <a target="_blank" href="http://mbostock.github.com/d3/">d3.js</a>,
+        <a target="_blank" href="http://www.flotcharts.org/">Flot</a>,
+        <a target="_blank" href="http://jquery.com/">jQuery</a>, and more.
+    </div>
+    <script type="text/javascript" src="spbrowser-redis.js"></script>
+
+ </body>
+</html>
