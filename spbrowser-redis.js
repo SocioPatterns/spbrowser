@@ -26,7 +26,13 @@ SPbrowser = function () {
                 
             },
             error: function(x, status, error){
-                alert("Error: "+x.status+"\nStatus: "+status+"\nError: "+error)
+                // console.debug("Error: "+x.status+"\nStatus: "+status+"\nError: "+error)
+                if (x.status == 0) {
+                    message = "Error connecting to database";
+                } else {
+                    message = "Error: "+x.status+"\nStatus: "+status+"\nError: "+error
+                }
+                $("#errors").text(message)
             }
         });
     
@@ -136,6 +142,15 @@ SPbrowser = function () {
                  }
 
                 callback(num_nodes_series);
+            },
+            error: function(x, status, error){
+                // console.debug("Error: "+x.status+"\nStatus: "+status+"\nError: "+error)
+                if (x.status == 0) {
+                    message = "Error connecting to database";
+                } else {
+                    message = "Error: "+x.status+"\nStatus: "+status+"\nError: "+error
+                }
+                $("#errors").text(message)
             }
         });
     }
@@ -153,7 +168,13 @@ SPbrowser = function () {
                 TIMESTAMP_MAX = param_t2;
             },
             error: function(x, status, error) {
-                alert("Error: "+x.status+"\nStatus: "+status+"\n"+error);
+                // console.debug("Error: "+x.status+"\nStatus: "+status+"\n"+error);
+                if (x.status == 0) {
+                    message = "Error connecting to database";
+                } else {
+                    message = "Error: "+x.status+"\nStatus: "+status+"\nError: "+error
+                }
+                $("#errors").text(message)
             }
         });
         

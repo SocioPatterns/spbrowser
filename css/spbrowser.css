@@ -86,6 +86,12 @@ div#controls LABEL {
 #param_wthres {
 }
 
+div#errors {
+   height: 50px;
+   width: 100px;
+   background: #fa0000;
+}
+
 div#graph-layout {
    height: 500px;
    background: #fafafa;
