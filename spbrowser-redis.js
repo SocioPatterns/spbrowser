@@ -4,6 +4,7 @@ var force;
 var w = $(window).width();
 var h = $(window).height() - $("#header").height() - 80;
 
+var fixedNodes = false;
 
 SPbrowser = function () {
     const WEBDIS_URL = "http://localhost:7379/";
@@ -96,14 +97,14 @@ SPbrowser = function () {
 
 
             if (! (t1 in nodeDict))
-                nodeDict[t1] = {name: t1, fixed: t1>=1300 };
+                nodeDict[t1] = {name: t1, fixed: fixedNodes };
             if (! (t1 in node_presence)) {
                 nodeArray.push(nodeDict[t1]);
                 node_presence[t1] = 1;
             }
 
             if (! (t2 in nodeDict))
-                nodeDict[t2] = {name: t2, fixed: t2>=1300 };
+                nodeDict[t2] = {name: t2, fixed: fixedNodes };
             if (! (t2 in node_presence)) {
                 nodeArray.push(nodeDict[t2]);
                 node_presence[t2] = 1;
@@ -123,6 +124,7 @@ SPbrowser = function () {
             dataType: 'json',
             data: "EVAL/"+script+"/1/"+RUN_NAME+"/"+tstart+"/"+tstop,
             success: function(data) {
+                // console.debug(data.EVAL);
                 ret = JSON.parse(data.EVAL);
                 num_nodes_series = [];
 
@@ -443,6 +445,11 @@ function resizeContents() {
 	    "width" : w,
 	    "height" : h
 	}),
+	
+	d3.select("#graph-layout")
+	    .selectAll("svg")
+            .attr("width", w)
+            .attr("height", h)
 
 	force.size([w, h]).start();
 
